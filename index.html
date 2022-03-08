@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/f5a469f25d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css" />
+
+        <title>Library</title>
+    </head>
+    <body>
+        <script src="app.js"></script>
+        <nav class="nav">
+            <div class="container">
+                <div class="logo">
+                    <a href="#">Library <i class="fas fa-regular fa-book"></i></a>
+                </div>
+                <div class="login">
+                    <button class="btn btn-login" type="button">Login</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main">
+            <div class="container">
+                <div class="books">
+                    <div class="book">
+                        <h3 class="title">Sample Book</h3>
+                        <div class="book-info">
+                            <div class="class">By: Author</div>
+                            <div class="status">Status: Read</div>
+                            <div class="pages">Pages: 300</div>
+                            <div class="date-added">Date-Added: 03/31/22</div>
+                        </div>
+                        <button type="button" class="btn btn-delete">Delete</button>
+                    </div>
+                    <!-- This is where books are displayed -->
+                </div>
+                <div class="info sidebar">
+                    <h3>Information</h3>
+
+                    <ul class="data-books">
+                        <li>Books</li>
+                        <li>Completed Books</li>
+                        <li>Total Pages</li>
+                        <li>Completed Pages</li>
+                    </ul>
+
+                    <button type="button" class="add"><i class="btn-add fas fa-plus-circle"></i></button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container"><p>Copyright &copy;The Codein Project 2022</p></div>
+        </footer>
+    </body>
+</html>

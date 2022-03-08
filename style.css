@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    /* border: 2px red solid; */
+}
+
+body {
+    background-color: aliceblue;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+.container {
+    display: flex;
+}
+
+/* Navbar */
+.nav,
+.footer {
+    background-color: black;
+    color: whitesmoke;
+}
+.logo {
+    font-size: xx-large;
+    font-family: monospace;
+    /* Import an animated book logo */
+}
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-login {
+    padding: 8px 24px;
+}
+
+.btn {
+    font-weight: bold;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+.btn:hover {
+    background-color: rgb(112, 112, 112);
+}
+
+.nav .container {
+    margin: 20px;
+    padding: 0px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* main */
+.main {
+    flex: 1 1 auto;
+}
+.main .container {
+    height: 100%;
+    justify-content: space-between;
+}
+
+/* Books */
+.books {
+    padding: 40px;
+    width: 100%;
+    font-weight: 200;
+    font-size: 18px;
+    flex-wrap: wrap;
+}
+
+.book {
+    background-color: rgb(87, 146, 197);
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 18px;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.book-info {
+    margin-bottom: 10px;
+}
+
+.btn-delete {
+    padding: 5px;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: darkslateblue;
+    color: whitesmoke;
+    padding: 20px;
+    border-left: 10px rgb(66, 55, 128) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-books {
+    margin: 0;
+    padding: 0;
+}
+
+.data-books li {
+    list-style: none;
+    padding: 10px;
+}
+
+.add {
+    background-color: inherit;
+    color: white;
+}
+
+.btn-add {
+    border-radius: 50%;
+    padding: 30px;
+    font-size: 60px;
+}
+
+.btn-add:hover {
+    color: rgb(112, 112, 112);
+}
+
+/* Footer */
+.footer {
+    font-weight: 200;
+    font-size: 12px;
+    padding: 10px;
+}
+.footer .container {
+    justify-content: center;
+}
