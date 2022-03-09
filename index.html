@@ -10,6 +10,7 @@
         <title>Library</title>
     </head>
     <body>
+        <div class="overlay hidden"></div>
         <nav class="nav">
             <div class="container">
                 <div class="logo">
@@ -27,13 +28,15 @@
                     <div class="book">
                         <h3 class="title">Sample Book</h3>
                         <div class="book-info">
-                            <div class="class">By: Author</div>
+                            <div class="author">By: Author</div>
                             <div class="status">Status: Read</div>
                             <div class="pages">Pages: 300</div>
                             <div class="date-added">Date-Added: 03/31/22</div>
                         </div>
-                        <button type="button" class="btn btn-edit">Edit</button>
-                        <button type="button" class="btn btn-delete">Delete</button>
+                        <div class="btn-books">
+                            <button type="button" class="btn btn-edit">Edit</button>
+                            <button type="button" class="btn btn-delete">Delete</button>
+                        </div>
                     </div>
                     <!-- This is where books are displayed -->
                 </div>
@@ -48,6 +51,7 @@
                     </ul>
 
                     <button type="button" class="btn-add"><i class="add fas fa-plus-circle"></i></button>
+                    
                 </div>
             </div>
         </main>
@@ -77,7 +81,7 @@
                                 <label for="status_true">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="status_false" name="status" value="false" />
+                                <input type="radio" id="status_false" name="status" value="false" checked/>
                                 <label for="status_false">No</label>
                             </div>
                         </div>
@@ -85,14 +89,14 @@
                     <!-- text area should only activate when the read-status is true/selected -->
                     <div class="textarea">
                         <label for="comments">Summary: </label>
-                        <textarea name="comments" id="comments" cols="30" rows=5" placeholder='Add summary...'></textarea></div>
+                        <textarea name="comments" id="comments" cols="28" rows=5" placeholder='Add summary...'></textarea></div>
 
-                    <button type="button" class='btn-close'>Cancel</button>
-                    <button type="submit">Add to Library</button>
+                    <button type="button" class='btn btn-close'>Cancel</button>
+                    <button type="submit" class="btn add-book">Add to Library</button>
                 </form>
             </div>
         </div>
-        <div class="overlay hidden"></div>
+       
 
         <footer class="footer">
             <div class="container"><p>Copyright &copy;The Codein Project 2022</p></div>

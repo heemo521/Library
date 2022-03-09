@@ -1,3 +1,9 @@
+/* Form needs styling */
+/* Book card needs styling fix */
+/* Sidebar styling */
+/* Background when viewed in smaller vh */
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -68,6 +74,8 @@ body {
 
 /* Books */
 .books {
+    display: flex;
+    gap: 50px;
     padding: 40px;
     width: 100%;
     font-weight: 200;
@@ -81,7 +89,7 @@ body {
     border-radius: 10px;
     padding: 18px;
     width: 240px;
-    height: 240px;
+    height: 20rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,6 +102,10 @@ body {
 }
 .book-info {
     margin-bottom: 10px;
+}
+.btn-books {
+    display: flex;
+    flex-direction: column;
 }
 
 .btn-delete,
