@@ -1,14 +1,48 @@
 let myLibrary = [];
 
-function Book(title, author, numPages, read) {
+const Book = function (title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function () {
-        return `The ${this.title} by ${this.author}, ${numPages} pages, ${this.read ? 'already read' : 'not read yet'}`;
-    };
+    this.data = new Date();
+};
+
+Book.prototype.info = function () {
+    return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'already read' : 'not read yet'}`;
+};
+
+// const bible = new Book('Bible', 'God', 2000, true);
+// const twelveRules = new Book('12 Rules For Life', 'J.P.', 500, false);
+
+const overlay = document.querySelector('.overlay');
+const modal = document.querySelector('.modal');
+
+const closeBtn = document.querySelectorAll('.btn-close');
+const openBtn = document.querySelector('.btn-add');
+const openForm = () => {
+    overlay.classList.remove('hidden');
+    modal.classList.remove('hidden');
+};
+const closeForm = () => {
+    overlay.classList.add('hidden');
+    modal.classList.add('hidden');
+};
+
+for (let i = 0; i < closeBtn.length; i++) {
+    closeBtn[i].addEventListener('click', closeForm);
+    overlay.addEventListener('click', closeForm);
+
+    openBtn.addEventListener('click', openForm);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.classList.contains('.hidden')) {
+            closeForm();
+        }
+    });
 }
+
+
 
 function displayBook() {
     //display books in a table or individual cards

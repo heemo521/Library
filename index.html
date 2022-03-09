@@ -6,11 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://kit.fontawesome.com/f5a469f25d.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style.css" />
-
+        <script defer src="app.js"></script>
         <title>Library</title>
     </head>
     <body>
-        <script src="app.js"></script>
         <nav class="nav">
             <div class="container">
                 <div class="logo">
@@ -33,6 +32,7 @@
                             <div class="pages">Pages: 300</div>
                             <div class="date-added">Date-Added: 03/31/22</div>
                         </div>
+                        <button type="button" class="btn btn-edit">Edit</button>
                         <button type="button" class="btn btn-delete">Delete</button>
                     </div>
                     <!-- This is where books are displayed -->
@@ -47,10 +47,52 @@
                         <li>Completed Pages</li>
                     </ul>
 
-                    <button type="button" class="add"><i class="btn-add fas fa-plus-circle"></i></button>
+                    <button type="button" class="btn-add"><i class="add fas fa-plus-circle"></i></button>
                 </div>
             </div>
         </main>
+
+        <!-- Form needs styling and connect to get info from the form -->
+        <!-- Need Authentication -->
+
+        <div class="modal hidden"> 
+            <button class="btn btn-close">&times;</button>
+            <div class="container">
+                <form action="#">
+                    <!-- book title -->
+                    <div><label for="title">Title: </label><input type="text" id="title" /></div>
+                    <!-- author -->
+                    <div><label for="author">Author: </label><input type="text" id="author" /></div>
+                    <!-- pages -->
+                    <div>
+                        <label for="pages">Number of Pages: </label>
+                        <input type="number" id="pages" name="pageNum" />
+                    </div>
+                    <!-- status -->
+                    <fieldset>
+                        <legend>Did you finish reading?</legend>
+                        <div>
+                            <div class="read-status">
+                                <input type="radio" id="status_true" name="status" value="true" />
+                                <label for="status_true">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="status_false" name="status" value="false" />
+                                <label for="status_false">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- text area should only activate when the read-status is true/selected -->
+                    <div class="textarea">
+                        <label for="comments">Summary: </label>
+                        <textarea name="comments" id="comments" cols="30" rows=5" placeholder='Add summary...'></textarea></div>
+
+                    <button type="button" class='btn-close'>Cancel</button>
+                    <button type="submit">Add to Library</button>
+                </form>
+            </div>
+        </div>
+        <div class="overlay hidden"></div>
 
         <footer class="footer">
             <div class="container"><p>Copyright &copy;The Codein Project 2022</p></div>
