@@ -1,3 +1,5 @@
+//Date not working
+
 //Form Validation
 //enable summary when read
 
@@ -13,15 +15,14 @@
 //sidebar render information
 //number of books
 //number of completed books
-//total number of pages 
+//total number of pages
 //total completed pages
 
 //filtering button to view read/not-read/all
 
 //save information via local storage
 
-//login 
-
+//login
 
 let myLibrary = [
     {
@@ -59,12 +60,13 @@ let myLibrary = [
     },
 ];
 
-const Book = function (title, author, pages, read) {
+const Book = function (title, author, pages, status, date, comments) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
-    this.data = new Date();
+    this.status = status;
+    this.data = date;
+    this.comments = comments;
 };
 
 Book.prototype.info = function () {
@@ -148,17 +150,10 @@ function addBookToLibrary(e) {
     const inputAuthor = document.querySelector('#author').value;
     const inputPages = document.querySelector('#pages').value;
     const inputComments = document.querySelector('#comments').value;
-    const inputRadio = statusRadio();
-    console.dir(inputRadio);
+    const inputStatus = statusRadio();
+    const createDate = new Date()
 
-    const newBook = {
-        author: inputAuthor,
-        title: inputTitle,
-        status: inputRadio,
-        date: new Date(),
-        pages: inputPages,
-        comments: inputComments,
-    };
+    const newBook = new Book(inputTitle, inputAuthor, inputPages, inputStatus, createDate, inputComments);
 
     myLibrary.push(newBook);
     closeForm();
