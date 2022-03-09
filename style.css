@@ -2,7 +2,9 @@
 /* Book card needs styling fix */
 /* Sidebar styling */
 /* Background when viewed in smaller vh */
-
+/* Book Delete button as x on the corner */
+/* add read class to differentiate the read/unread books via color */
+/* cards should be clickable(double-click) to change read status */
 
 * {
     box-sizing: border-box;

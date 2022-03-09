@@ -1,12 +1,27 @@
-// need to add id to each book to be able remove them;
+//Form Validation
+//enable summary when read
+
+//format date;
+
 // delete button
+// remove book from the array
 
 // edit button
 // another modal for edit button
+// should be able to remove book, edit/read comment, change read status
 
 //sidebar render information
+//number of books
+//number of completed books
+//total number of pages 
+//total completed pages
 
 //filtering button to view read/not-read/all
+
+//save information via local storage
+
+//login 
+
 
 let myLibrary = [
     {
@@ -25,7 +40,6 @@ let myLibrary = [
         date: new Date(),
         pages: 473,
         comments: '',
-        //use date to create unique id?
     },
     {
         author: 'Jay Wengrow',
@@ -34,7 +48,6 @@ let myLibrary = [
         date: new Date(),
         pages: 473,
         comments: '',
-        //use date to create unique id?
     },
     {
         author: 'Jay Wengrow',
@@ -43,7 +56,6 @@ let myLibrary = [
         date: new Date(),
         pages: 473,
         comments: '',
-        //use date to create unique id?
     },
 ];
 
@@ -59,12 +71,11 @@ Book.prototype.info = function () {
     return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'already read' : 'not read yet'}`;
 };
 
-// const bible = new Book('Bible', 'God', 2000, true);
-// const twelveRules = new Book('12 Rules For Life', 'J.P.', 500, false);
 // Buttons
 const closeBtn = document.querySelectorAll('.btn-close');
 const openBtn = document.querySelector('.btn-add');
 const addBook = document.querySelector('.add-book');
+// const removeBooksBtn = document.querySelectorAll('.btn-delete');
 
 // Select Target
 const overlay = document.querySelector('.overlay');
@@ -95,25 +106,19 @@ for (let i = 0; i < closeBtn.length; i++) {
     });
 }
 
-// author: 'Jay Wengrow',
-// title: 'Data Structure and Algorithms',
-// status: true,
-// date: new Date(),
-// pages: 473,
-// comments: 'This book is about data efficiency using Big O Notation',
-
 function displayBook(books) {
     booksCtn.innerHTML = '';
     //input of an object containing book data;
-    books.forEach((book) => {
+    books.forEach((book, i) => {
         const author = book.author;
         const title = book.title;
         const status = book.status;
         const date = book.date;
         const pages = book.pages;
+        const dataID = i;
 
         const bookHtml = `
-        <div class="book">
+        <div class="book" data-id="${dataID}">
             <h3 class="title">${title}</h3>
             <div class="book-info">
                 <div class="author">By: ${author}</div>
@@ -162,22 +167,24 @@ function addBookToLibrary(e) {
 
 addBook.addEventListener('click', addBookToLibrary);
 
-//User inputs
-//Validation
+function removeBookFromLibrary() {
+    //Each book has a button to remove the book from the library
+    // Add a button on each book’s display to remove the book from the library.
+    //drag to a trashcan and erase? or save the trashcan info on another array?
+    // use filter method to create new array and assign it to the library;
+    console.log('Hello');
+}
 
-//If validated create an object and push into the library array;
-
-//Users can input the details for the new book
-//Author, Title, NumPages, Read or Not Read
-// Add a “NEW BOOK” button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read and anything else you might want.
-
-function removeBookFromLibrary() {}
-//Each book has a button to remove the book from the library
-// Add a button on each book’s display to remove the book from the library.
+// for (let i = 0; i < removeBooksBtn.length; i++) {
+//     removeBooksBtn[i].addEventListener('click', removeBookFromLibrary);
+// }
 
 function changeReadStatus() {}
 //Another button to change read status
-// Add a button on each book’s display to change its read status.
+//Double click on the book card to change its read status.
+
+//changing read status will change color the card;
+
 // To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
 
 // You will need to associate your DOM elements with the actual book objects in some way. One easy solution is giving them a data-attribute that corresponds to the index of the library array.
