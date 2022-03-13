@@ -1,0 +1,200 @@
+Form needs styling
+/* Book card needs styling fix */
+/* Sidebar styling */
+/* Background when viewed in smaller vh */
+/* Book Delete button as x on the corner */
+/* add read class to differentiate the read/unread books via color */
+/* cards should be clickable(double-click) to change read status */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    /* border: 2px red solid; */
+}
+
+/* body {
+    background: linear-gradient(to top left, rgb(39, 154, 255), aliceblue);
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+.container {
+    display: flex;
+} */
+/* 
+
+.nav,
+.footer {
+    background-color: black;
+    color: whitesmoke;
+}
+.logo {
+    font-size: xx-large;
+    font-family: monospace;
+}
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-login {
+    padding: 8px 24px;
+}
+
+.btn {
+    font-weight: bold;
+    background-color: gainsboro;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: rgb(112, 112, 112);
+}
+
+.nav .container {
+    margin: 20px;
+    padding: 0px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.main {
+    flex: 1 1 auto;
+}
+.main .container {
+    height: 100%;
+    justify-content: space-between;
+}
+
+
+.books {
+    display: flex;
+    gap: 50px;
+    padding: 40px;
+    width: 100%;
+    font-weight: 200;
+    font-size: 18px;
+    flex-wrap: wrap;
+}
+
+.book {
+    background-color: rgb(87, 146, 197);
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 18px;
+    width: 240px;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.book-info {
+    margin-bottom: 10px;
+}
+.btn-books {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-delete,
+.btn-edit {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-delete {
+    background-color: rgb(187, 101, 101);
+}
+.btn-delete:hover {
+    background-color: rgb(155, 82, 82);
+}
+
+
+.sidebar {
+    background-color: rgb(67, 167, 255);
+    color: whitesmoke;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-books {
+    margin: 0;
+    padding: 0;
+}
+
+.data-books li {
+    list-style: none;
+    padding: 10px;
+}
+
+.add {
+    font-size: 60px;
+}
+
+.btn-add {
+    background-color: inherit;
+    color: white;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    color: rgb(112, 112, 112);
+}
+
+
+.footer {
+    font-weight: 200;
+    font-size: 12px;
+    padding: 10px;
+}
+.footer .container {
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: auto;
+    background-color: skyblue;
+    padding: 18px;
+    border-radius: 10px;
+    border: 5px rgb(43, 43, 43) solid;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+} */
