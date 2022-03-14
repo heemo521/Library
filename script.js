@@ -8,7 +8,7 @@ let library = [];
 // BOOK CONSTRUCTOR
 class Book {
     constructor(id, title, firstName, lastName, pages, genre, date, status, comments) {
-        this._id = id;
+        this.id = id;
         this.title = title;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,6 +20,19 @@ class Book {
         this.comments = comments;
     }
 }
+
+const doYouPray = new Book(
+    '1',
+    'Do You Pray?',
+    'J.C.',
+    'Ryle',
+    67,
+    'Christian',
+    '03/12/2022',
+    true,
+    `orem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus sed consequatur impedit. Ad
+consectetur delenitid`
+);
 
 // SELECTORS
 const formModal = document.querySelector('#form');
@@ -156,8 +169,12 @@ const statusRadio = function () {
 
 // FUNCTION: GENERATE DATA-ID FOR THE BOOK
 const generateID = function () {
-    const randomID = Math.random() * 1000;
-    return randomID;
+    const randomID = Math.floor(Math.random() * 1000 + 1) + 1;
+    if (library.every((book) => +book.id !== randomID)) {
+        return randomID;
+    } else {
+        generateID();
+    }
 };
 
 // FUNCTION: FORM INPUT VALIDATION
@@ -217,6 +234,17 @@ const toggleStatus = function () {
 };
 // DELETE-BTN TO DELETE THE BOOK FROM THE ARRAY
 // ASK THE USER ONE MORE TIME TO MAKE SURE THAT THEY WANT TO DELETE THIS
+const deleteBook = function (event) {
+    if (event.target.classList.contains('fa-times-circle')) {
+        const id = Number.parseFloat(event.target.closest('.book').dataset.id);
+
+        library = library.filter((book) => {
+            return +book.id !== id;
+        });
+
+        displayBook(library);
+    }
+};
 
 // BOOK-TITLE-BTN TO OPEN UP THE FORM AGAIN TO BE ABLE TO EDIT THE CARD
 //FORM SHOULD ALREADY BE FILLED OUT WITH SAVED DATA
@@ -257,6 +285,16 @@ btnToggleStatus.addEventListener('click', toggleStatus);
 // IF TRUE, REMOVE THE BOOK FROM THE ARRAY
 // DISPLAY UPDATED ARRAY TO THE SCREEN
 
+// btnDelete.addEventListener('click', deleteBook);
+booksCtn.addEventListener('click', deleteBook);
+
 // FUNCTION: BOOK-TITLE-BTN TO OPEN UP THE FORM AGAIN TO BE ABLE TO EDIT THE CARD
 //FORM SHOULD ALREADY BE FILLED OUT WITH SAVED DATA
 //USE THE SAME FOR AS ADD-BOOK BUTTON
+
+console.log(doYouPray);
+library.push(doYouPray);
+library.push(doYouPray);
+library.push(doYouPray);
+library.push(doYouPray);
+displayBook(library);
