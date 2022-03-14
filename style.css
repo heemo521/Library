@@ -44,6 +44,11 @@ ul {
     color: #fff;
 }
 
+.btn:hover,
+.btn:active {
+    cursor: pointer;
+}
+
 /* .btn:hover,
 .btn:active {
 } */
@@ -52,7 +57,18 @@ ul {
 /* COMPONENT STYLE */
 /* ------------------------- */
 
-.container {
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+#container {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -123,7 +139,7 @@ ul {
 }
 
 a.btn-edit {
-    font-size: 24spx;
+    font-size: 24px;
 }
 
 .book-info {
@@ -138,6 +154,9 @@ a.btn-edit {
     /* text-shadow: 1px 1px black; */
     display: flex;
     justify-content: space-between;
+}
+.info {
+    flex: 1;
 }
 
 /* .book-info-bottom{} */
@@ -161,11 +180,25 @@ span.comments-text {
     font-size: 30px;
 }
 
-.info-display {
+.display-info {
     flex: 1;
     border-left: 2px #868e96 solid;
     background-color: #b197fc;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
 }
+/* .display-info-top {
+} */
+
+h2.title-info {
+    font-size: 44px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* .display-info-bottom {
+} */
 
 #footer {
     background-color: #7048e8;
@@ -250,4 +283,63 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+/* -------------------------FORM-TEMPORARY------------------------- */
+.modal {
+    background-color: #2196f3;
+    position: absolute;
+    z-index: 10;
+    width: 500px;
+    margin: 30px 500px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 2;
+    padding-bottom: 24px;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+button.btn-form {
+    background-color: aquamarine;
+    color: rgb(70, 68, 68);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+h1.sign-up {
+    text-align: center;
+    color: rgb(38, 38, 38);
+}
+
+.textarea {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.emailingList {
+    display: flex;
+    gap: 10px;
+}
+
+.btns {
+    display: flex;
+}
+.btn-form {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.reset {
+    background-color: rgb(177, 194, 194);
+}
+
+fieldset {
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.hidden {
+    display: none;
 }

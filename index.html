@@ -13,32 +13,115 @@
         <title>The Library</title>
     </head>
     <body>
-        <div class="container">
+        <div class="overlay hidden" id="overlay"></div>
+        <div class="modal hidden" id="form">
+            <form action="http://httpbin.org/post" method="post">
+                <h1 class="sign-up">Sign-up Form</h1>
+                <div>
+                    <label for="user_firstName">First Name: </label>
+                    <input type="text" id="user_firstName" placeholder="Bob..." name="first_name" />
+                </div>
+                <div>
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" id="user_lastName" placeholder="Johnson..." name="last_name" />
+                </div>
+                <div><label for="user_age">Age: </label> <input type="number" id="user_age" name="age" placeholder="Select age" /></div>
+                <!-- <button class="display-btn">Display Info</button> -->
+                <div>
+                    <label for="user_email">Email: </label>
+                    <input type="email" id="user_email" placeholder="ex@example.com" name="user_email" />
+                </div>
+                <div>
+                    <label for="user_password">Password: </label>
+                    <input type="password" id="user_password" name="password" placeholder="min. 8 characters" />
+                </div>
+                <div>
+                    <label for="dob">Date of Birth: </label>
+                    <input type="date" id="dob" name="dob" />
+                </div>
+                <fieldset>
+                    <legend>Optional</legend>
+                    <div class="car">
+                        <label for="car">Favorite Car Manufacturer:</label>
+                        <select name="car" id="car">
+                            <option value="mercedes">Mercedes</option>
+                            <option value="tesla" selected>Tesla</option>
+                            <option value="volvo">Volvo</option>
+                            <option value="bmw">BMW</option>
+                            <option value="mini">Mini</option>
+                            <option value="ford">Ford</option>
+                        </select>
+                    </div>
+                    <div class="fashion">
+                        <label for="fashion">Favorite Fashion:</label>
+                        <select name="fashion" id="fashion">
+                            <optgroup label="Clothing">
+                                <option value="t_shirt">T-Shirts</option>
+                                <option value="sweater">Sweaters</option>
+                                <option value="coats">Coats</option>
+                            </optgroup>
+                            <optgroup label="FootWear">
+                                <option value="sneakers">Sneakers</option>
+                                <option value="boots">Boots</option>
+                                <option value="sandals">Sandals</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset class="emailList">
+                    <legend>Would you like to receive emails?</legend>
+                    <div class="addEmail">
+                        <h5>Emailing List:</h5>
+                        <div class="emailingList">
+                            <div>
+                                <input type="radio" name="emailing" id="yes_email" value="yes" />
+                                <label for="yes_email">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="emailing" id="no_email" value="no" checked />
+                                <label for="no_email">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infoEmail">
+                        <h5>Email Information On:</h5>
+                        <div>
+                            <div>
+                                <input type="checkbox" name="news" id="news" />
+                                <label for="news">News</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="events" id="events" />
+                                <label for="events">Events</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="textarea">
+                    <label for="comments">Additional Comment: </label>
+                    <textarea name="comments" id="comments" cols="30" rows="5" placeholder="Additional Comment here..."></textarea>
+                </div>
+                <div class="btns">
+                    <button type="button" class="btn-form button">Button</button>
+                    <button type="reset" class="btn-form reset">Reset</button>
+                    <button type="submit" class="btn-form submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="container" id="container">
             <header class="header" id="header">
                 <div class="logo">
                     <a href="index.html" rel="Home" class="btn btn-home"><i class="fas fa-regular fa-book"></i> Library</a>
                 </div>
-                <div class="login"><a href="" class="btn btn-login">Login</a></div>
+                <div class="login"><a href="#" class="btn btn-login">Login</a></div>
             </header>
             <section class="main" id="main">
                 <div class="main-display">
-                    <!-- <div class="book-filter"> -->
-                    <!-- author: list-of authors -->
-                    <!-- type: list-of-logos with description -->
-                    <!-- read-status: radio buttons -->
-                    <!--  -->
-                    <!-- <label for="filter">Choose </label>
-                        <select name="filter" id="filter">
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select> -->
-                    <!-- </div> -->
                     <div class="books-container books">
                         <div class="book" data-id="0">
                             <div class="book-top">
-                                <h3 class="title"><a href="#" class="btn btn-edit">Sample Book</a></h3>
+                                <h3 class="title"><a href="#" class="btn btn-edit btn-add">Do you pray?</a></h3>
                             </div>
                             <div class="book-info">
                                 <div class="book-info-top">
@@ -57,9 +140,10 @@
                                         </div>
                                     </div>
                                     <div class="read">
-                                        <!-- <span>Status </span> -->
+                                        <!-- <span class="status">Status</span> -->
                                         <label class="switch">
-                                            <input type="checkbox" />
+                                            <!-- read -->
+                                            <input type="checkbox" id="status" />
                                             <span class="slider round"></span>
                                         </label>
                                     </div>
@@ -79,7 +163,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="info-display"></div>
+
+                <div class="display-info library-info">
+                    <div class="library-info-top">
+                        <h2 class="title-info">Library</h2>
+                    </div>
+                    <div class="library-info-bottom">
+                        <a href="#" class="btn btn-add">
+                            <i class="fas fa-plus-circle"></i>
+                            <span class="add-text">Add</span>
+                        </a>
+                    </div>
+                </div>
             </section>
             <footer class="footer" id="footer">
                 <p class="copyright">Copyright &copy; heemo521 2022</p>
