@@ -15,97 +15,86 @@
     <body>
         <div class="overlay hidden" id="overlay"></div>
         <div class="modal hidden" id="form">
-            <form action="http://httpbin.org/post" method="post">
-                <h1 class="sign-up">Sign-up Form</h1>
-                <div>
-                    <label for="user_firstName">First Name: </label>
-                    <input type="text" id="user_firstName" placeholder="Bob..." name="first_name" />
-                </div>
-                <div>
-                    <label for="lastName">Last Name: </label>
-                    <input type="text" id="user_lastName" placeholder="Johnson..." name="last_name" />
-                </div>
-                <div><label for="user_age">Age: </label> <input type="number" id="user_age" name="age" placeholder="Select age" /></div>
-                <!-- <button class="display-btn">Display Info</button> -->
-                <div>
-                    <label for="user_email">Email: </label>
-                    <input type="email" id="user_email" placeholder="ex@example.com" name="user_email" />
-                </div>
-                <div>
-                    <label for="user_password">Password: </label>
-                    <input type="password" id="user_password" name="password" placeholder="min. 8 characters" />
-                </div>
-                <div>
-                    <label for="dob">Date of Birth: </label>
-                    <input type="date" id="dob" name="dob" />
-                </div>
+            <a class="btn btn-exit"><i class="fas fa-times-circle"></i></a>
+            <!-- <form action="http://httpbin.org/post" method="post"> -->
+            <form>
+                <h1 class="library-form">Library Form</h1>
                 <fieldset>
-                    <legend>Optional</legend>
-                    <div class="car">
-                        <label for="car">Favorite Car Manufacturer:</label>
-                        <select name="car" id="car">
-                            <option value="mercedes">Mercedes</option>
-                            <option value="tesla" selected>Tesla</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="bmw">BMW</option>
-                            <option value="mini">Mini</option>
-                            <option value="ford">Ford</option>
-                        </select>
+                    <legend><label for="book_title">Title</label></legend>
+                    <input type="text" id="book_title" name="book_title" placeholder="ex. Data Structure and Algorithms" />
+                </fieldset>
+                <fieldset>
+                    <legend>Author</legend>
+                    <div>
+                        <label for="firstName">First Name: </label>
+                        <input type="text" id="firstName" placeholder="ex. Jay" name="first_name" />
                     </div>
-                    <div class="fashion">
-                        <label for="fashion">Favorite Fashion:</label>
-                        <select name="fashion" id="fashion">
-                            <optgroup label="Clothing">
-                                <option value="t_shirt">T-Shirts</option>
-                                <option value="sweater">Sweaters</option>
-                                <option value="coats">Coats</option>
-                            </optgroup>
-                            <optgroup label="FootWear">
-                                <option value="sneakers">Sneakers</option>
-                                <option value="boots">Boots</option>
-                                <option value="sandals">Sandals</option>
-                            </optgroup>
-                        </select>
+                    <div>
+                        <label for="lastName">Last Name: </label>
+                        <input type="text" id="lastName" placeholder="ex. Wengrow" name="last_name" />
                     </div>
                 </fieldset>
-                <fieldset class="emailList">
-                    <legend>Would you like to receive emails?</legend>
-                    <div class="addEmail">
-                        <h5>Emailing List:</h5>
-                        <div class="emailingList">
-                            <div>
-                                <input type="radio" name="emailing" id="yes_email" value="yes" />
-                                <label for="yes_email">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="emailing" id="no_email" value="no" checked />
-                                <label for="no_email">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infoEmail">
-                        <h5>Email Information On:</h5>
-                        <div>
-                            <div>
-                                <input type="checkbox" name="news" id="news" />
-                                <label for="news">News</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="events" id="events" />
-                                <label for="events">Events</label>
-                            </div>
-                        </div>
+                <fieldset>
+                    <legend>Numbers</legend>
+                    <div><label for="pages">Page Number: </label> <input type="number" id="pages" name="age" placeholder="ex. 473" /></div>
+                    <div>
+                        <label for="date">Date: </label>
+                        <input type="date" id="date" name="date" />
                     </div>
                 </fieldset>
 
-                <div class="textarea">
-                    <label for="comments">Additional Comment: </label>
-                    <textarea name="comments" id="comments" cols="30" rows="5" placeholder="Additional Comment here..."></textarea>
-                </div>
-                <div class="btns">
-                    <button type="button" class="btn-form button">Button</button>
-                    <button type="reset" class="btn-form reset">Reset</button>
-                    <button type="submit" class="btn-form submit">Submit</button>
+                <fieldset>
+                    <legend>Did you finish reading?</legend>
+                    <div class="reading">
+                        <div>
+                            <input type="radio" name="read" id="yes" value="yes" />
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="read" id="no" value="no" checked />
+                            <label for="no">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Optional</legend>
+                    <div class="genre">
+                        <label for="genre">Choose a genre:</label>
+                        <select name="genre" id="genre">
+                            <option value="none">Choose a genre...</option>
+                            <option value="action">Action and Adventure</option>
+                            <option value="classics">Classics</option>
+                            <option value="coding">Coding</option>
+                            <option value="comic">Comic Book</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="historical-fiction">Historical Fiction</option>
+                            <option value="Horror">Horror</option>
+                            <option value="literary-fiction">Literary Fiction</option>
+                            <option value="romance">Romance</option>
+                            <option value="science-fiction">Science Fiction</option>
+                            <option value="short-stories">Short Stories</option>
+                            <option value="thriller">Suspense Thrillers</option>
+                            <option value="women">Women's Fiction</option>
+                            <option value="biographies">Biographies and Autobiographies</option>
+                            <option value="cookbook">Cookbooks</option>
+                            <option value="essays">Essays</option>
+                            <option value="history">History</option>
+                            <option value="memoir">Memoir</option>
+                            <option value="poetry">Poetry</option>
+                            <option value="self-help">Self-Help</option>
+                            <option value="true-crime">True-crime</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Comment</legend>
+                    <div class="textarea">
+                        <textarea name="comments" id="comments" cols="30" rows="5" placeholder="Write a summary or a comment here..."></textarea>
+                    </div>
+                </fieldset>
+                <div class="btns-form">
+                    <a type="submit" class="btn btn-form add-book">Add to Library</a>
+                    <a type="button" class="btn btn-form btn-close">Cancel</a>
                 </div>
             </form>
         </div>
@@ -149,7 +138,7 @@
                                     </div>
                                 </div>
                                 <div class="book-info-bottom">
-                                    <label class="label comments-label" for="comments">Comments:</label>
+                                    <label class="label comments-label" for="comments">Summary:</label>
                                     <span class="text comments-text"
                                         >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus sed consequatur impedit. Ad
                                         consectetur delenitid

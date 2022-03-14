@@ -1,64 +1,220 @@
 'use strict';
 
-// SELECTORS
-const formModal = document.querySelector('#form');
-
-const overlay = document.querySelector('#overlay');
-
-const btnsOpenForm = document.querySelectorAll('.btn-add');
-
-// const btnCloseForm
-// const btnDelete
-
-// const toggleStatus = document.querySelector('#status');
-
-// toggleStatus.addEventListener('click', function () {
-//need to access its parent and retrieve data-id and change data on the actual object
-//     console.log(this.checked);
-// });
-
-// FORM VALUE SELECTORS
+//NEED TO RESET INPUT RADIO BUTTON TO NO
 
 // BOOK ARRAY
-let LIBRARY = [];
+let library = [];
 
 // BOOK CONSTRUCTOR
 class Book {
-    constructor(id, title, author, pages, date, status) {
+    constructor(id, title, firstName, lastName, pages, genre, date, status, comments) {
         this._id = id;
         this.title = title;
-        this.author = author;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.authorFullName = `${firstName} ${lastName}`;
         this.pages = pages;
+        this.genre = genre;
         this.date = date;
         this.status = status;
         this.comments = comments;
     }
 }
 
+// SELECTORS
+const formModal = document.querySelector('#form');
+const overlay = document.querySelector('#overlay');
+const btnsOpenForm = document.querySelectorAll('.btn-add');
+const btnsCloseForm = [document.querySelector('.btn-close'), document.querySelector('.btn-exit'), overlay];
+const btnDelete = document.querySelector('.btn-delete');
+const booksCtn = document.querySelector('.books-container');
+const btnSubmitForm = document.querySelector('.add-book');
+const btnToggleStatus = document.querySelector('#status');
+
 //------------------------------ FUNCTIONS -------------------------------//
+
 // FUNCTION: DISPLAY BOOKS FROM THE ARRAY
-//  LOOP THROUGH THE ARRAY OF BOOK OBJECT AND DISPLAY EACH ONE ON A CARD
+const emptyDisplay = function () {
+    booksCtn.innerHTML = '';
+};
 
-// FUNCTION: FORM INPUT VALIDATION
+const displayBook = function (books) {
+    emptyDisplay();
 
-// FUNCTION: CREATE A BOOK OBJECT FROM CONSTRUCTOR
-//USER CLICKS SUBMIT
-//VALIDATE
+    books.forEach((book) => {
+        // constructor(id, title, firstName, lastName, pages, genre, date, status, comments)
+        const { id, title, firstName, lastName, pages, genre, date, status, comments } = book;
+
+        const bookHtml = `
+                <div class="book" data-id="${id}">
+                <div class="book-top">
+                    <h3 class="title"><a href="#" class="btn btn-edit btn-add">${title}</a></h3>
+                </div>
+
+                <div class="book-info">
+                    <div class="book-info-top">
+                        <div class="info">
+                            <div class="author">
+                                <label class="label author-label">Author:</label>
+                                <span class="text author-text">${firstName.toUpperCase()} ${lastName[0].toUpperCase()}.</span>
+                            </div>
+                            <div class="pages">
+                                <label class="label pages-label">Pages: </label>
+                                <span class="text pages-text">${pages}</span>
+                            </div>
+                            <div class="date-added">
+                                <label class="label date-label">Date:</label>
+                                <span class="text date-text">${date}</span>
+                            </div>
+                        </div>
+                        <div class="read">
+                            <!-- <span class="status">Status</span> -->
+                            <label class="switch">
+                                <!-- read -->
+                                <input type="checkbox" id="status" ${status === 'yes' ? 'checked' : ''}/>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="book-info-bottom">
+                        <label class="label comments-label" for="comments">Summary:</label>
+                        <span class="text comments-text">${comments}</span>
+                    </div>
+                </div>
+
+                <div class="book-bottom">
+                    <a href="#" class="btn btn-delete"><i class="fas fa-times-circle"></i></a>
+                </div>
+            </div>`;
+
+        booksCtn.insertAdjacentHTML('beforeend', bookHtml);
+    });
+};
+
+//------------------------------EVENT HANDLER /CALLBACK FUNCTIONS -------------------------------//
+//FUNCTION: OPEN THE FORM
+const openForm = function () {
+    formModal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+//FUNCTION: CLOSE THE FORM
+const closeForm = function () {
+    formModal.classList.add('hidden');
+    overlay.classList.add('hidden');
+    clearForm();
+};
+
+const closeForm2 = function (event) {
+    if (event.key === 'Escape' && !formModal.classList.contains('hidden')) {
+        closeForm();
+    }
+};
+
 //IF VALIDATED CREATE AN OBJECT AND ADD TO ARRAY
 //ADD DATE-ID ATTRIBUTE
 //CALL DISPLAY FUNCTION
 
-// FUNCTION: GENERATE DATA-ID FOR THE BOOK
+//FORM VALUE SELECTOR
+const title = document.querySelector('#book_title');
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
+const date = document.querySelector('#date');
+const pages = document.querySelector('#pages');
+const comments = document.querySelector('#comments');
+const genre = document.querySelector('#genre');
 
-//------------------------------ BUTTONS -------------------------------//
+// FUNCTION: GET FORM VALUE
+const getFormValues = function () {
+    const inputTitle = title.value;
 
-// ADD-BOOK-BTN: OPEN UP THE FORM TO ADD TO THE LIBRARY
-const openForm = function () {
-    formModal.classList.toggle('hidden');
-    overlay.classList.toggle('hidden');
+    const inputFirstName = firstName.value;
+
+    const inputLastName = lastName.value;
+
+    const inputDate = date.value;
+
+    const inputPages = pages.value;
+
+    const inputComments = comments.value;
+
+    const inputGenre = genre.value;
+
+    const inputRead = statusRadio();
+    console.log(inputRead);
+
+    // constructor(id, title, firstName, lastName, pages, genre, date, status, comments)
+    return [inputTitle, inputFirstName, inputLastName, inputPages, inputGenre, inputDate, inputRead, inputComments];
 };
-// BOOK-READ-STATUS-BTN
 
+// FUNCTION: HELPER => GET READ STATUS VALUE
+const statusRadio = function () {
+    const selectedStatus = document.getElementsByName('read');
+    return [...selectedStatus].filter((ele) => ele.checked)[0].value;
+};
+
+// FUNCTION: GENERATE DATA-ID FOR THE BOOK
+const generateID = function () {
+    const randomID = Math.random() * 1000;
+    return randomID;
+};
+
+// FUNCTION: FORM INPUT VALIDATION
+const validateForm = function () {};
+
+// FUNCTION: CREATE A BOOK OBJECT FROM CONSTRUCTOR
+const createBook = function (formValues) {
+    const newBook = new Book(generateID(), ...formValues);
+    return newBook;
+};
+// FUNCTION: ADD BOOK TO THE LIBRARY
+const addBookToLibrary = function (book) {
+    library.push(book);
+};
+
+const clearForm = function () {
+    title.value = '';
+    firstName.value = '';
+    lastName.value = '';
+    date.value = '';
+    pages.value = '';
+    comments.value = '';
+    genre.value = '';
+    //NEED TO RESET INPUT RADIO BUTTON TO NO
+};
+const submitForm = function (event) {
+    event.preventDefault();
+    // if (validateForm(event) === false) {
+    //     console.log('INVALID FORM ENTRY');
+    //     return;
+    // }
+
+    const formValues = getFormValues();
+
+    const book = createBook(formValues);
+
+    addBookToLibrary(book);
+
+    displayBook(library);
+
+    closeForm();
+
+    clearForm();
+};
+
+const submitForm2 = function (event) {
+    if (event.key === 'Enter' && !formModal.classList.contains('hidden')) {
+        submitForm(event);
+    }
+};
+
+// BOOK-READ-STATUS-BTN
+const toggleStatus = function () {
+    // need to access its parent and retrieve data-id and change data on the actual object
+    console.log(this.parentNode);
+    console.log(this.checked);
+};
 // DELETE-BTN TO DELETE THE BOOK FROM THE ARRAY
 // ASK THE USER ONE MORE TIME TO MAKE SURE THAT THEY WANT TO DELETE THIS
 
@@ -73,14 +229,28 @@ const openForm = function () {
 //UN-READ
 // ADD SORTING FUNCTIONALITY THAT DISPLAYS BOOK CARDS IN THE ALPHABETIZED ORDER (BY TITLE OR AUTHOR)
 
-//------------------------------ EVENT HANDLER FUNCTIONS -------------------------------//
-// FUNCTION: ADD-BOOK-BTN: OPEN UP THE FORM TO ADD TO THE LIBRARY
+//------------------------------ADD EVENT LISTENER  -------------------------------//
+//FUNCTION: OPEN THE FORM
 btnsOpenForm.forEach((btnOpen) => {
     btnOpen.addEventListener('click', openForm);
 });
 
+document.addEventListener('keydown', closeForm2);
+
+//FUNCTION: CLOSE THE FORM
+btnsCloseForm.forEach((btnClose) => {
+    // console.log(btnClose);
+    btnClose.addEventListener('click', closeForm);
+});
+
+// FUNCTION: ADD-BOOK-BTN: OPEN UP THE FORM TO ADD TO THE LIBRARY
+btnSubmitForm.addEventListener('click', submitForm);
+
+document.addEventListener('keydown', submitForm2);
+
 // FUNCTION: BOOK-READ-STATUS-BTN
 //TOGGLES THE BOOK OBJECTS STATUS DATA
+btnToggleStatus.addEventListener('click', toggleStatus);
 
 // FUNCTION: DELETE-BTN TO DELETE THE BOOK FROM THE ARRAY
 // ASK THE USER ONE MORE TIME TO MAKE SURE THAT THEY WANT TO DELETE THIS

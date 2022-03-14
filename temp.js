@@ -34,7 +34,7 @@
 // -option key and select
 
 // Shadows (flat design 2.0)
-// ---------------------------------------------------------------------//
+
 //comments max 120 characters
 
 //resize title if longer than 12 characters
