@@ -22,6 +22,18 @@ class Book {
 }
 
 const doYouPray = new Book(
+    '0',
+    'Do You Pray?',
+    'J.C.',
+    'Ryle',
+    67,
+    'Christian',
+    '03/12/2022',
+    'yes',
+    `orem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus sed consequatur impedit. Ad
+consectetur delenitid`
+);
+const doYouPray1 = new Book(
     '1',
     'Do You Pray?',
     'J.C.',
@@ -29,7 +41,31 @@ const doYouPray = new Book(
     67,
     'Christian',
     '03/12/2022',
-    true,
+    'no',
+    `orem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus sed consequatur impedit. Ad
+consectetur delenitid`
+);
+const doYouPray2 = new Book(
+    '2',
+    'Do You Pray?',
+    'J.C.',
+    'Ryle',
+    67,
+    'Christian',
+    '03/12/2022',
+    'yes',
+    `orem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus sed consequatur impedit. Ad
+consectetur delenitid`
+);
+const doYouPray3 = new Book(
+    '3',
+    'Do You Pray?',
+    'J.C.',
+    'Ryle',
+    67,
+    'Christian',
+    '03/12/2022',
+    'yes',
     `orem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus sed consequatur impedit. Ad
 consectetur delenitid`
 );
@@ -55,7 +91,6 @@ const displayBook = function (books) {
     emptyDisplay();
 
     books.forEach((book) => {
-        // constructor(id, title, firstName, lastName, pages, genre, date, status, comments)
         const { id, title, firstName, lastName, pages, genre, date, status, comments } = book;
 
         const bookHtml = `
@@ -126,8 +161,6 @@ const closeForm2 = function (event) {
 };
 
 //IF VALIDATED CREATE AN OBJECT AND ADD TO ARRAY
-//ADD DATE-ID ATTRIBUTE
-//CALL DISPLAY FUNCTION
 
 //FORM VALUE SELECTOR
 const title = document.querySelector('#book_title');
@@ -227,10 +260,15 @@ const submitForm2 = function (event) {
 };
 
 // BOOK-READ-STATUS-BTN
-const toggleStatus = function () {
+const toggleStatus = function (event) {
     // need to access its parent and retrieve data-id and change data on the actual object
-    console.log(this.parentNode);
-    console.log(this.checked);
+    if (event.target.classList.contains('slider')) {
+        const id = Number.parseFloat(event.target.closest('.book').dataset.id);
+        const changeBookRead = library.findIndex((book) => +book.id === id);
+        console.log(changeBookRead);
+        library[changeBookRead].status = library[changeBookRead].status === 'yes' ? 'no' : 'yes';
+        console.log(library[changeBookRead].status);
+    }
 };
 // DELETE-BTN TO DELETE THE BOOK FROM THE ARRAY
 // ASK THE USER ONE MORE TIME TO MAKE SURE THAT THEY WANT TO DELETE THIS
@@ -262,7 +300,6 @@ const deleteBook = function (event) {
 btnsOpenForm.forEach((btnOpen) => {
     btnOpen.addEventListener('click', openForm);
 });
-
 document.addEventListener('keydown', closeForm2);
 
 //FUNCTION: CLOSE THE FORM
@@ -273,12 +310,11 @@ btnsCloseForm.forEach((btnClose) => {
 
 // FUNCTION: ADD-BOOK-BTN: OPEN UP THE FORM TO ADD TO THE LIBRARY
 btnSubmitForm.addEventListener('click', submitForm);
-
 document.addEventListener('keydown', submitForm2);
 
 // FUNCTION: BOOK-READ-STATUS-BTN
 //TOGGLES THE BOOK OBJECTS STATUS DATA
-btnToggleStatus.addEventListener('click', toggleStatus);
+booksCtn.addEventListener('click', toggleStatus);
 
 // FUNCTION: DELETE-BTN TO DELETE THE BOOK FROM THE ARRAY
 // ASK THE USER ONE MORE TIME TO MAKE SURE THAT THEY WANT TO DELETE THIS
@@ -294,7 +330,7 @@ booksCtn.addEventListener('click', deleteBook);
 
 console.log(doYouPray);
 library.push(doYouPray);
-library.push(doYouPray);
-library.push(doYouPray);
-library.push(doYouPray);
+library.push(doYouPray1);
+library.push(doYouPray2);
+library.push(doYouPray3);
 displayBook(library);
