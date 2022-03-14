@@ -7,22 +7,93 @@
         <script src="https://kit.fontawesome.com/f5a469f25d.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Fredoka+One&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="style.css" />
         <script defer src="script.js"></script>
-        <title>Library</title>
+        <title>The Library</title>
     </head>
     <body>
         <div class="container">
-            <header class="header" id="header"></header>
-            <section class="main" id="main"></section>
+            <header class="header" id="header">
+                <div class="logo">
+                    <a href="index.html" rel="Home" class="btn btn-home"><i class="fas fa-regular fa-book"></i> Library</a>
+                </div>
+                <div class="login"><a href="" class="btn btn-login">Login</a></div>
+            </header>
+            <section class="main" id="main">
+                <div class="main-display">
+                    <!-- <div class="book-filter"> -->
+                    <!-- author: list-of authors -->
+                    <!-- type: list-of-logos with description -->
+                    <!-- read-status: radio buttons -->
+                    <!--  -->
+                    <!-- <label for="filter">Choose </label>
+                        <select name="filter" id="filter">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select> -->
+                    <!-- </div> -->
+                    <div class="books-container books">
+                        <div class="book" data-id="0">
+                            <div class="book-top">
+                                <h3 class="title"><a href="#" class="btn btn-edit">Sample Book</a></h3>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-info-top">
+                                    <div class="info">
+                                        <div class="author">
+                                            <label class="label author-label">Author:</label>
+                                            <span class="text author-text">Christian H.</span>
+                                        </div>
+                                        <div class="pages">
+                                            <label class="label pages-label">Pages: </label>
+                                            <span class="text pages-text">300</span>
+                                        </div>
+                                        <div class="date-added">
+                                            <label class="label date-label">Date:</label>
+                                            <span class="text date-text">03/31/22</span>
+                                        </div>
+                                    </div>
+                                    <div class="read">
+                                        <!-- <span>Status </span> -->
+                                        <label class="switch">
+                                            <input type="checkbox" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="book-info-bottom">
+                                    <label class="label comments-label" for="comments">Comments:</label>
+                                    <span class="text comments-text"
+                                        >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus sed consequatur impedit. Ad
+                                        consectetur delenitid
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="book-bottom">
+                                <a href="#" class="btn btn-delete"><i class="fas fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-display"></div>
+            </section>
             <footer class="footer" id="footer">
-                <uo>
-                    <li class="github"></li>
-                    <li class="twitter"></li>
-                    <li class="linked-in"></li>
-                </uo>
                 <p class="copyright">Copyright &copy; heemo521 2022</p>
+                <ul class="links">
+                    <li class="github link">
+                        <a href="#" class="btn btn-link"><i class="fab fa-github"></i></a>
+                    </li>
+                    <li class="twitter link">
+                        <a href="#" class="btn btn-link"> <i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="linkedin link">
+                        <a href="#" class="btn btn-link"> <i class="fab fa-linkedin"></i></a>
+                    </li>
+                </ul>
             </footer>
         </div>
     </body>

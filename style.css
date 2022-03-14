@@ -7,15 +7,18 @@ FONT SIZE SYSTEM (px)
 */
 
 /* 
-MAIN COLOR:
-GREY COLOR:
+MAIN COLOR: (VIOLET 7) => #7048e8;
+GREY COLOR: (GRAY 8) => #343a40;
 */
 
-/* FONT-FAMILY */
+/* FONT-FAMILY
+font-family: 'Fredericka the Great', cursive; 
+font-family: 'Fredoka One', cursive;
+*/
 
 * {
     margin: 0;
-    border: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -23,9 +26,228 @@ GREY COLOR:
 /* GENERAL STYLE */
 /* ------------------------- */
 
+body {
+    font-family: 'Fredericka the Great', cursive;
+    /* font-family: 'Fredoka One', cursive; */
+    color: #fff;
+}
 
+ul {
+    list-style: none;
+}
 
+.btn:link,
+.btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* .btn:hover,
+.btn:active {
+} */
 
 /* ------------------------- */
 /* COMPONENT STYLE */
 /* ------------------------- */
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7048e8;
+    padding: 12px 30px;
+    border-bottom: 2px #868e96 solid;
+}
+
+.logo {
+    font-size: 52px;
+}
+.btn-login:link {
+    border: 2px #fff solid;
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+#main {
+    flex: 1;
+    display: flex;
+}
+
+.main-display {
+    flex: 5;
+    background-color: #e5dbff;
+}
+
+.book-filter {
+    width: 100%;
+    height: 80px;
+    border: 1px #868e96 solid;
+}
+
+/* BOOKS */
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 48px;
+}
+
+.book {
+    /* border: 2px #212529 solid; */
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    max-height: 360px;
+}
+
+.book-top,
+.book-info {
+    padding: 16px;
+}
+
+.book-top {
+    background-color: #7048e8;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+    font-size: 24px;
+    text-align: center;
+}
+
+a.btn-edit {
+    font-size: 24spx;
+}
+
+.book-info {
+    flex: 1;
+    border-left: 1px #7048e8 solid;
+    border-right: 1px #7048e8 solid;
+    color: #495057;
+    background-color: #f3f0ff;
+}
+
+.book-info-top {
+    /* text-shadow: 1px 1px black; */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .book-info-bottom{} */
+span.text {
+    font-size: 18px;
+}
+
+span.comments-text {
+    display: block;
+}
+
+.book-bottom {
+    background-color: #7048e8;
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    padding: 4px 12px;
+    text-align: center;
+    /* position: relative; */
+}
+.btn-delete {
+    font-size: 30px;
+}
+
+.info-display {
+    flex: 1;
+    border-left: 2px #868e96 solid;
+    background-color: #b197fc;
+}
+
+#footer {
+    background-color: #7048e8;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 18px;
+    border-top: 2px #868e96 solid;
+}
+
+ul.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+li.link {
+    margin-bottom: 6px;
+}
+
+/* Status-Read */
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
