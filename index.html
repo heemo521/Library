@@ -21,25 +21,25 @@
                 <h1 class="library-form">Library Form</h1>
                 <fieldset>
                     <legend><label for="book_title">Title</label></legend>
-                    <input type="text" id="book_title" name="book_title" placeholder="ex. Data Structure and Algorithms" />
+                    <input type="text" id="book_title" name="book_title" placeholder="ex. Data Structure and Algorithms" required autofocus />
                 </fieldset>
                 <fieldset>
                     <legend>Author</legend>
                     <div>
                         <label for="firstName">First Name: </label>
-                        <input type="text" id="firstName" placeholder="ex. Jay" name="first_name" />
+                        <input type="text" id="firstName" placeholder="ex. Jay" name="first_name" required />
                     </div>
                     <div>
                         <label for="lastName">Last Name: </label>
-                        <input type="text" id="lastName" placeholder="ex. Wengrow" name="last_name" />
+                        <input type="text" id="lastName" placeholder="ex. Wengrow" name="last_name" required />
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Numbers</legend>
-                    <div><label for="pages">Page Number: </label> <input type="number" id="pages" name="age" placeholder="ex. 473" /></div>
+                    <div><label for="pages">Page Number: </label> <input type="number" id="pages" name="age" placeholder="ex. 473" required /></div>
                     <div>
                         <label for="date">Date: </label>
-                        <input type="date" id="date" name="date" />
+                        <input type="date" id="date" name="date" required />
                     </div>
                 </fieldset>
 
@@ -56,32 +56,33 @@
                         </div>
                     </div>
                 </fieldset>
+                <div><input type="file" /></div>
                 <fieldset>
                     <legend>Optional</legend>
                     <div class="genre">
                         <label for="genre">Choose a genre:</label>
                         <select name="genre" id="genre">
                             <option value="none">Choose a genre...</option>
-                            <option value="action">Action and Adventure</option>
+                            <option value="action"><i class="fas fa-location"></i> Action and Adventure</option>
                             <option value="classics">Classics</option>
-                            <option value="coding">Coding</option>
-                            <option value="comic">Comic Book</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="historical-fiction">Historical Fiction</option>
-                            <option value="Horror">Horror</option>
+                            <option value="coding"><i class="fas fa-computer-classic"></i> Coding</option>
+                            <option value="comic"><i class="fas fa-galaxy"></i> Comic Book</option>
+                            <option value="fantasy"><i class="fas fa-alicorn"></i> Fantasy</option>
+                            <option value="historical-fiction"><i class="fas fa-landmark"></i> Historical Fiction</option>
+                            <option value="Horror"><i class="fas fa-scarecrow"></i> Horror</option>
                             <option value="literary-fiction">Literary Fiction</option>
-                            <option value="romance">Romance</option>
+                            <option value="romance"><i class="fas fa-heart"></i> Romance</option>
                             <option value="science-fiction">Science Fiction</option>
                             <option value="short-stories">Short Stories</option>
-                            <option value="thriller">Suspense Thrillers</option>
-                            <option value="women">Women's Fiction</option>
+                            <option value="thriller"><i class="fas fa-knife-kitchen"></i> Suspense Thrillers</option>
+                            <option value="women"><i class="fas fa-female"></i> Women's Fiction</option>
                             <option value="biographies">Biographies and Autobiographies</option>
-                            <option value="cookbook">Cookbooks</option>
-                            <option value="essays">Essays</option>
+                            <option value="cookbook"><i class="fas fa-hat-chef"></i> Cookbooks</option>
+                            <option value="essays"><i class="fas fa-keyboard"></i> Essays</option>
                             <option value="history">History</option>
                             <option value="memoir">Memoir</option>
-                            <option value="poetry">Poetry</option>
-                            <option value="self-help">Self-Help</option>
+                            <option value="poetry"><i class="fas fa-pencil-alt"></i> Poetry</option>
+                            <option value="self-help"><i class="fas fa-hand-heart"></i> Self-Help</option>
                             <option value="true-crime">True-crime</option>
                         </select>
                     </div>
@@ -110,7 +111,7 @@
                     <div class="books-container books">
                         <div class="book" data-id="0">
                             <div class="book-top">
-                                <h3 class="title"><a href="#" class="btn btn-edit btn-add">Do you pray?</a></h3>
+                                <h3 class="title"><a href="#" class="btn btn-edit">Do you pray?</a></h3>
                             </div>
                             <div class="book-info">
                                 <div class="book-info-top">
@@ -155,7 +156,7 @@
 
                 <div class="display-info library-info">
                     <div class="library-info-top">
-                        <h2 class="title-info">Library</h2>
+                        <h2 class="title-info">Library Info</h2>
                     </div>
                     <div class="library-info-bottom">
                         <a href="#" class="btn btn-add">
